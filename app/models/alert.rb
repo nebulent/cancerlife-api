@@ -5,6 +5,8 @@ class Alert < ActiveRecord::Base
   validates_presence_of :organization_id
   validates_presence_of :severity
 
+  attr_accessible :severity
+
   def create_timestamps
     self.created = Time.now
     self.modified = Time.now
