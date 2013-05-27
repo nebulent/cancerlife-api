@@ -6,6 +6,7 @@ class CancerType < ActiveRecord::Base
   validates_presence_of :user_count
 
   attr_accessible :name, :user_count
+  
   def create_timestamps
     self.created = Time.now
     self.modified = Time.now
