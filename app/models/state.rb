@@ -1,6 +1,8 @@
 class State < ActiveRecord::Base
   before_create :create_timestamps
   before_update :update_timestamps
+  
+  has_many :organizations
   has_many :cities
   belongs_to :country
 

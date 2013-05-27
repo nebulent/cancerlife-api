@@ -1,15 +1,14 @@
-class Country < ActiveRecord::Base
+class Organization < ActiveRecord::Base
   before_create :create_timestamps
   before_update :update_timestamps
+  belongs_to :country
+  belongs_to :city
+  belongs_to :state
 
-  has_many :organizations
-  has_many :states
-
-  validates_presence_of :iso
-  validates_uniqueness_of :iso
   validates_presence_of :name
+  validates_presence_of :type
 
-  attr_accessible :name, :iso
+  attr_accessible :name, :type
 
   def create_timestamps
     self.created = Time.now
