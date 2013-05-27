@@ -1,13 +1,11 @@
-Cancerlife Sinatra App with ActiveRecord
+Cancerlife API for communicating with the application
 ---
-A naked sinatra app, which supports ActiveRecord out of the box.
+This is a rails application, API in development, used to communicate with the Cancerlife application itself.
 
 ## Features
 
-- console (`rake console`)
-- auto reload in development using Sinatra::Reloader
-- Shoulda-enabled Rspec spec helper
-- basic rackup config file
+- console (`rails c`)
+- start application on local machine (`rails s`)
 
 ## Getting started
 
@@ -17,5 +15,3 @@ A naked sinatra app, which supports ActiveRecord out of the box.
 4. migrate (`rake db:migrate`)
 5. create models in app/models
 6. Profit!
-
-(For details, consult sinatra-activerecord gem)
