@@ -1,12 +1,13 @@
-class BrandPage < ActiveRecord::Base
+class CancerDrug < ActiveRecord::Base
   before_create :create_timestamps
   before_update :update_timestamps
 
   validates_presence_of :name
-  validates_presence_of :organization_id
-  validates_presence_of :screen_name
+  validates_presence_of :sort
+  validates_presence_of :type
+  validates_presence_of :user_count
 
-  attr_accessible :name, :screen_name
+  attr_accessible :name, :sort, :type, :user_count
 
   def create_timestamps
     self.created = Time.now
