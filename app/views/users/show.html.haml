@@ -1,0 +1,20 @@
+%h2
+  User
+  = @user.login 
+%p#notice= notice
+
+%p
+  %b Name: 
+  %span= @user.nicename
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Url:
+  = @user.url
+%p
+  %b Status:
+  = @user.status
+
+= link_to 'Edit', edit_user_path(@user) |
+= link_to 'Back', users_path
