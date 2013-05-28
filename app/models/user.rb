@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   before_create :set_create_timestamps
   before_update :set_timestamps
 
+  has_many :brand_page_users
+  has_many :brand_pages, :through => :brand_page_users
+  
   validates_presence_of :donate_info
   validates_presence_of :email
   validates_presence_of :first_name
