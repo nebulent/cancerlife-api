@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   has_many :brand_pages, :through => :brand_page_users
   has_many :challenge_completions
   has_many :challenges, :through => :challenge_completions
+  has_many :challenge_members
+  has_many :challenges, :through => :challenge_members
 
   validates_presence_of :donate_info
   validates_presence_of :email
@@ -19,6 +21,10 @@ class User < ActiveRecord::Base
   validates_presence_of :verified_email
 
   attr_accessible :email, :donate_info, :first_name, :last_name, :journal_reminder, :level, :verified_email, :password, :roles, :update_via_sms
+
+  def completed_challenges
+    User.joins(:challenge_completions).where(:id => self.id)
+  end
 
   def set_timestamps
     self.modified = Time.now
