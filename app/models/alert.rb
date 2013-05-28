@@ -2,6 +2,9 @@ class Alert < ActiveRecord::Base
   before_create :create_timestamps
   before_update :update_timestamps
 
+  has_many :alert_cancer_types
+  has_many :cancer_types, :through => :alert_cancer_types
+
   validates_presence_of :organization_id
   validates_presence_of :severity
 
