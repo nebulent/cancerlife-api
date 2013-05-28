@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
 
   has_many :brand_page_users
   has_many :brand_pages, :through => :brand_page_users
-  
+  has_many :challenge_completions
+  has_many :challenges, :through => :challenge_completions
+
   validates_presence_of :donate_info
   validates_presence_of :email
   validates_presence_of :first_name

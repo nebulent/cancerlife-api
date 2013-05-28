@@ -2,6 +2,9 @@ class Challenge < ActiveRecord::Base
   before_create :create_timestamps
   before_update :update_timestamps
 
+  has_many :challenge_completions
+  has_many :users, :through => :challenge_completions
+  
   validates_presence_of :challenge_category_id
   validates_presence_of :max_members
   validates_presence_of :min_members
