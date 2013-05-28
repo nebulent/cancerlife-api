@@ -1,9 +1,9 @@
-class AlertCancerType < ActiveRecord::Base
+class AlertSideEffect < ActiveRecord::Base
   before_create :create_timestamps
   before_update :update_timestamps
 
   belongs_to :alert
-  belongs_to :cancer_type
+  belongs_to :side_effect
 
   def create_timestamps
     self.created = Time.now
