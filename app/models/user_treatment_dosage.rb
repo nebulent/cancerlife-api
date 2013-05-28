@@ -1,7 +1,9 @@
 class UserTreatmentDosage < ActiveRecord::Base
-  before_create :update_timestamps
-  before_update :update_modified_time
+  before_create :create_timestamps
+  before_update :update_timestamps
 
+  belongs_to :user_treatment
+  
   validates_presence_of :days
   validates_presence_of :dosage
   validates_presence_of :time
@@ -9,12 +11,12 @@ class UserTreatmentDosage < ActiveRecord::Base
   
   attr_accessible :days, :dosage, :time 
 
-  def update_timestamps
+  def create_timestamps
     self.created = Time.now
     self.modified = Time.now
   end
 
-  def update_modified_time
+  def update_timestamps
     self.modified = Time.now
   end
 end
