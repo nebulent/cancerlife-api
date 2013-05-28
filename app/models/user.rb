@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   has_many :challenges, :through => :challenge_members
   has_many :user_friends
   has_many :friends, :through => :user_friends
+  has_many :user_followers
+  has_many :followers, :through => :user_followers
 
   validates_presence_of :donate_info
   validates_presence_of :email
