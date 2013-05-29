@@ -1,6 +1,8 @@
 class WishlistItem < ActiveRecord::Base
-  before_create :update_timestamps
-  before_update :update_modified_time
+  before_create :create_timestamps
+  before_update :update_timestamps
+
+  belongs_to :user
 
   validates_presence_of :datetime
   validates_presence_of :name
@@ -8,12 +10,12 @@ class WishlistItem < ActiveRecord::Base
   
   attr_accessible :datetime, :name
 
-  def update_timestamps
+  def create_timestamps
     self.created = Time.now
     self.modified = Time.now
   end
 
-  def update_modified_time
+  def update_timestamps
     self.modified = Time.now
   end
 end

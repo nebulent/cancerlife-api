@@ -6,6 +6,8 @@ class Attachment < ActiveRecord::Base
   validates_presence_of :file
   validates_presence_of :message_id
 
+  belongs_to :message
+  
   attr_accessible :dir, :file
 
   def create_timestamps

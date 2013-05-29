@@ -1,9 +1,12 @@
 class Organization < ActiveRecord::Base
   before_create :create_timestamps
   before_update :update_timestamps
+  
   belongs_to :country
   belongs_to :city
   belongs_to :state
+  has_one :brand_page
+  has_many :site_invitations
 
   validates_presence_of :name
   validates_presence_of :type

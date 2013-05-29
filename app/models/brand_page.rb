@@ -4,7 +4,9 @@ class BrandPage < ActiveRecord::Base
 
   has_many :brand_page_users
   has_many :users, :through => :brand_page_users
-  
+  has_many :events
+  belongs_to :organization
+
   validates_presence_of :name
   validates_presence_of :organization_id
   validates_presence_of :screen_name

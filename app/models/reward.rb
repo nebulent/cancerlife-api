@@ -3,6 +3,7 @@ class Reward < ActiveRecord::Base
   before_update :update_timestamps
 
   belongs_to :goal
+  belongs_to :user
 
   validates_presence_of :creator_id
   validates_presence_of :datetime

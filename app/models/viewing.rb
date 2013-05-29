@@ -1,6 +1,6 @@
 class Viewing < ActiveRecord::Base
-  before_create :update_timestamps
-  before_update :update_modified_time
+  before_create :create_timestamps
+  before_update :update_timestamps
 
   validates_presence_of :count
   validates_presence_of :model
@@ -8,12 +8,12 @@ class Viewing < ActiveRecord::Base
   
   attr_accessible :model, :count
 
-  def update_timestamps
+  def create_timestamps
     self.created = Time.now
     self.modified = Time.now
   end
 
-  def update_modified_time
+  def update_timestamps
     self.modified = Time.now
   end
 end

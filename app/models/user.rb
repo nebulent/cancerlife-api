@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  before_create :set_create_timestamps
-  before_update :set_timestamps
+  before_create :create_timestamps
+  before_update :update_timestamps
 
   has_many :brand_page_users
   has_many :brand_pages, :through => :brand_page_users
@@ -13,6 +13,13 @@ class User < ActiveRecord::Base
   has_many :user_followers
   has_many :followers, :through => :user_followers
   has_many :user_treatments
+  has_many :events
+  has_many :goals
+  has_many :messages
+  has_many :reports
+  has_many :rewards
+  has_many :user_circles
+  has_many :wishlist_items
 
   validates_presence_of :donate_info
   validates_presence_of :email
@@ -31,12 +38,12 @@ class User < ActiveRecord::Base
     User.joins(:challenge_completions).where(:id => self.id)
   end
 
-  def set_timestamps
+  def update_timestamps
     self.modified = Time.now
     self.user_update_count += 1
   end
 
-  def set_create_timestamps
+  def create_timestamps
     self.user_update_count = 1
     self.created = Time.now
     self.modified = Time.now
