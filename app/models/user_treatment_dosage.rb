@@ -1,4 +1,4 @@
-class UserTreatmentDosage < ActiveRecord::Base
+class Usertreatmentdosage < ActiveRecord::Base
   before_create :update_timestamps
   before_update :update_modified_time
 
