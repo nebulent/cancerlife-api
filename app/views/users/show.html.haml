@@ -2,8 +2,11 @@
 %p#notice= notice
 
 %p
-  %b Name: 
+  %b First Name: 
   %span= @user.first_name
+%p
+  %b Last Name: 
+  %span= @user.last_name
 %p
   %b Email:
   = @user.email
@@ -11,7 +14,19 @@
   %b Doantion information:
   = @user.donate_info
 %p
-  %b Update via sms
+  %b Journal reminder:
+  %span= @user.journal_reminder
+%p
+  %b Level:
+  %span= @user.level
+%p
+  %b Roles:
+  %span= @user.roles
+%p
+  %b Verified email:
+  %span= @user.verified_email
+%p
+  %b Update via sms:
   = @user.update_via_sms
 
 = link_to 'Edit', edit_user_path(@user) |
