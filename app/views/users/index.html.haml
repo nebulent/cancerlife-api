@@ -1,12 +1,30 @@
 %h1 Listing users
+%table
+  %thead
+    %tr
+      %th First Name
+      %th Last Name
+      %th Email
+      %th Donate Info.
+      %th Journal reminder
+      %th Level
+      %th Roles
+      %th Verified_email
+      %th Update via sms
 
-- @users.each do |user|
-  %tr
-    %td= user.login
-    %td= link_to 'Show', user
-    %td= link_to 'Edit', edit_user_path(user)
-    %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
-    %br
-%br
-
+  - @users.each do |user|
+    %tr
+      %td= user.first_name
+      %td= user.last_name
+      %td= user.email
+      %td= user.donate_info
+      %td= user.journal_reminder
+      %td= user.level
+      %td= user.roles
+      %td= user.verified_email
+      %td= user.update_via_sms
+      %td= link_to 'Show', user
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+  
 = link_to 'New User', new_user_path

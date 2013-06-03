@@ -1,20 +1,18 @@
-%h2
-  User
-  = @user.login 
+%h2 User Information 
 %p#notice= notice
 
 %p
   %b Name: 
-  %span= @user.nicename
+  %span= @user.first_name
 %p
   %b Email:
   = @user.email
 %p
-  %b Url:
-  = @user.url
+  %b Doantion information:
+  = @user.donate_info
 %p
-  %b Status:
-  = @user.status
+  %b Update via sms
+  = @user.update_via_sms
 
 = link_to 'Edit', edit_user_path(@user) |
 = link_to 'Back', users_path

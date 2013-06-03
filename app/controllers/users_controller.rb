@@ -18,6 +18,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    @user.donate_info = true
+    @user.journal_reminder = true
+    @user.verified_email = true
+    @user.update_via_sms = true
 
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
