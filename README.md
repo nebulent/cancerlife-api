@@ -15,3 +15,10 @@ This is a rails application, API in development, used to communicate with the Ca
 4. migrate (`rake db:migrate`)
 5. create models in app/models
 6. Profit!
+
+## Executing API calls
+---
+The API receives RESTful requests, mostly using json.
+How do you execute it? After running the project on your local machine, execute via curl(for example) a POST request for:
+`http://localhost:3000/api/users/create`,
+with the json you want to pass. Judging the response you get(also a json), you will see whether you were able to create a user, or not.
