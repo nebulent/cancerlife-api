@@ -19,7 +19,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(transform_params)
+    @user = User.new(params[:user])
+    @user.update_attributes :donate_info => "true", :journal_reminder => "true", :verified_email => "true", :update_via_sms => "true"
 
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'

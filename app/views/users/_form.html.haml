@@ -8,22 +8,22 @@
         - @user.errors.full_messages.each do |msg|
           %li= msg
   .field
-    = f.label :login
-    = f.text_field :login
+    = f.label :first_name
+    = f.text_field :first_name
   .field
-    = f.label :pass
-    = f.password_field :pass
+    = f.label :last_name
+    = f.text_field :last_name
   .field
-    = f.label :nicename
-    = f.text_field :nicename
+    = f.label :password
+    = f.password_field :password
   .field
     = f.label :email
     = f.email_field :email
   .field
-    = f.label :url
-    = f.text_field :url
+    = f.label :level
+    = f.number_field :level
   .field
-    = f.label :status
-    = f.text_field :status
-  .actions
+    = f.label :roles
+    = f.number_field :roles
+    .actions
     = f.submit
