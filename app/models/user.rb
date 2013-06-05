@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :user_circles
   has_many :wishlist_items, :dependent => :destroy
   has_many :comments, :dependent => :destroy
+  has_and_belongs_to_many :sites
 
   validates_presence_of :donate_info
   validates_presence_of :email
