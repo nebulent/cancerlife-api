@@ -7,7 +7,7 @@ class Message < ActiveRecord::Base
   validates_presence_of :type
   validates_presence_of :user_id
 
-  has_many :attachments
+  has_many :attachments, :dependent => :destroy_all
   has_one :event
   belongs_to :user
     

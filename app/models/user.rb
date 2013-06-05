@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :brand_page_users
   has_many :brand_pages, :through => :brand_page_users
-  has_many :challenge_completions
+  has_many :challenge_completions, :dependent => :destroy
   has_many :challenges, :through => :challenge_completions
   has_many :challenge_members
   has_many :challenges, :through => :challenge_members
@@ -14,12 +14,13 @@ class User < ActiveRecord::Base
   has_many :followers, :through => :user_followers
   has_many :user_treatments
   has_many :events
-  has_many :goals
-  has_many :messages
+  has_many :goals, :dependent => :destroy
+  has_many :messages, :dependent => :destroy
   has_many :reports
   has_many :rewards
   has_many :user_circles
-  has_many :wishlist_items
+  has_many :wishlist_items, :dependent => :destroy
+  has_many :comments, :dependent => :destroy
 
   validates_presence_of :donate_info
   validates_presence_of :email
