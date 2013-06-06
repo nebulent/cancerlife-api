@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
-
+      @user.sites << Site.find(current_tenant_id)
       @response = {:message => "The user has been saved"}
       respond_with(@response)
     else
@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
 
   def check_email
     if User.exists?(:email => params[:email])
-      if User.find_by_email(params[:email]).sites.where(:id => current_tenant_id).present?
+      if users_on_current_tenant.where(:email => params[:email]).present?
         @response = {:message => "User already exists"}
         respond_with(@response, :location => api_users_url)
       else
